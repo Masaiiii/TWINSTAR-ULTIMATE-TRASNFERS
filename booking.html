@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Transfer - Twinstar Ultimate Transfers</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Twinstar Ultimate Transfers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="booking.html">Book Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Booking Section -->
+    <section class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-4">Book Your Transfer</h1>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="alert alert-info mb-4">
+                                <p class="mb-0"><strong>Pricing Information:</strong> Each transfer costs KSh 1,000 per person. Round trips are KSh 2,000 per person.</p>
+                            </div>
+                            <form id="bookingForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="e.g., 07XXXXXXXX" required>
+                                </div>
+                                <!-- Replace the existing location input with this dropdown -->
+                                    <div class="mb-3">
+                                        <label for="location" class="form-label">Pickup/Dropoff Location</label>
+                                        <select class="form-select" id="location" required>
+                                            <option value="">Select Location</option>
+                                            <option value="malindi">Malindi (KSh 1,000)</option>
+                                            <option value="kilifi">Kilifi (KSh 800)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Update the pricing information alert -->
+                                    <div class="alert alert-info mb-4">
+                                        <p class="mb-0"><strong>Pricing Information:</strong></p>
+                                        <ul class="mb-0">
+                                            <li>Malindi- WATAMU: KSh 1,000 per person (KSh 2,000 for round trip)</li>
+                                            <li>Kilifi- MAVUENI: KSh 800 per person (KSh 1,600 for round trip)</li>
+                                        </ul>
+                                    </div>
+                                
+                                <div id="returnDetails" class="mb-3 d-none">
+                                    <label for="returnTime" class="form-label">Return Time</label>
+                                    <select class="form-select" id="returnTime">
+                                        <option value="">Select Return Time</option>
+                                        <option value="03:00">3:00 AM</option>
+                                        <option value="14:00">2:00 PM</option>
+                                        <option value="20:00">8:00 PM</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="date" class="form-label">Date of Travel</label>
+                                    <input type="date" class="form-control" id="date" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="passengers" class="form-label">Number of Passengers</label>
+                                    <input type="number" class="form-control" id="passengers" min="1" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="location" class="form-label">Pickup/Dropoff Location</label>
+                                    <input type="text" class="form-control" id="location" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Total Price: <span id="totalPrice">KSh 0</span></label>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Payment Method</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="mpesa" value="mpesa" checked>
+                                        <label class="form-check-input-label" for="mpesa">M-Pesa</label>
+                                    </div>
+                                </div>
+
+                                <div id="mpesaDetails" class="mb-4 p-3 border rounded">
+                                    <h5>M-Pesa Payment Instructions</h5>
+                                    <p>After submitting your booking, you will receive an STK push to complete your payment.</p>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                        <label class="form-check-label" for="termsCheck">
+                                            I agree to the terms and conditions
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100">Book and Pay Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 Twinstar Ultimate Transfers. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const transferTypeSelect = document.getElementById('transferType');
+            const pickupDetails = document.getElementById('pickupDetails');
+            const returnDetails = document.getElementById('returnDetails');
+            const passengersInput = document.getElementById('passengers');
+            const totalPriceSpan = document.getElementById('totalPrice');
+            const bookingForm = document.getElementById('bookingForm');
+
+            // Show/hide pickup and return time fields based on transfer type
+            transferTypeSelect.addEventListener('change', function() {
+                if (this.value === 'pickup' || this.value === 'both') {
+                    pickupDetails.classList.remove('d-none');
+                } else {
+                    pickupDetails.classList.add('d-none');
+                }
+
+                if (this.value === 'return' || this.value === 'both') {
+                    returnDetails.classList.remove('d-none');
+                } else {
+                    returnDetails.classList.add('d-none');
+                }
+                
+                calculateTotal();
+            });
+
+                        function calculateTotal() {
+                const transferType = transferTypeSelect.value;
+                const location = document.getElementById('location').value;
+                const passengers = parseInt(passengersInput.value) || 0;
+                let pricePerPerson = 0;
+                
+                // Set base price according to location
+                const basePrice = location === 'kilifi' ? 800 : 1000;
+                
+                if (transferType === 'pickup' || transferType === 'return') {
+                    pricePerPerson = basePrice; // One-way transfer
+                } else if (transferType === 'both') {
+                    pricePerPerson = basePrice * 2; // Round trip
+                }
+                
+                const totalPrice = pricePerPerson * passengers;
+                totalPriceSpan.textContent = `KSh ${totalPrice.toLocaleString()}`;
+            }
+
+            // Add event listener for location change
+            document.getElementById('location').addEventListener('change', calculateTotal);
+            // Form submission
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate form
+                if (!this.checkValidity()) {
+                    e.stopPropagation();
+                    this.classList.add('was-validated');
+                    return;
+                }
+                
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                   
+                    phone: document.getElementById('phone').value,
+                    transferType: document.getElementById('transferType').value,
+                    pickupTime: document.getElementById('pickupTime').value,
+                    returnTime: document.getElementById('returnTime').value,
+                    date: document.getElementById('date').value,
+                    passengers: document.getElementById('passengers').value,
+                    location: document.getElementById('location').value,
+                    totalPrice: totalPriceSpan.textContent
+                };
+                
+                // Here you would integrate with M-Pesa API
+                // For demonstration, we'll show an alert
+                alert('Processing your booking and initiating M-Pesa payment...');
+                
+                // In a real implementation, you would:
+                // 1. Send the booking data to your server
+                // 2. Server would initiate M-Pesa STK push
+                // 3. Handle the payment callback
+                
+                console.log('Booking data:', formData);
+                
+                // Simulate successful booking
+                setTimeout(() => {
+                    alert('Booking successful! Check your phone for M-Pesa payment prompt.');
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
